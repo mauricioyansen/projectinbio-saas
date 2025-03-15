@@ -27,7 +27,7 @@ export function UserCard() {
           {icons.map((Icon, index) => (
             <Button
               key={index}
-              className="p-3 rounded-xl bg-[#1e1e1e] hover:bg-[#2e2e2e] transition"
+              className="p-3 rounded-xl bg-[#1e1e1e] hover:bg-[#2e2e2e] transition cursor-pointer"
             >
               <Icon />
             </Button>
@@ -36,8 +36,8 @@ export function UserCard() {
       </div>
         <div className="flex flex-col gap-3 w-full h-[172px]">
           <div className="w-full flex flex-col items-center gap-3">
-            <Button className="w-full">Template SaaS - Compre Agora</Button>
-            <Button>
+            <Button className="w-full cursor-pointer">Template SaaS - Compre Agora</Button>
+            <Button className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E] cursor-pointer">
               <Plus />
             </Button>
           </div>

@@ -12,7 +12,7 @@ export function Button({
     <button
       {...props}
       className={cn(
-        "p-3 text-white rounded-xl font-bond whitespace-nowrap hover:opacity-95 disabled:opacity-70",
+        "p-3 text-white rounded-xl font-bond whitespace-nowrap hover:opacity-95 disabled:opacity-70 cursor-pointer",
         variant === "primary" && "bg-[var(--accent-purple)]",
         variant === "secondary" && "bg-[var(--background-tertiary)]",
         variant === "ghost" && "border-[var(--border-primary)]]",

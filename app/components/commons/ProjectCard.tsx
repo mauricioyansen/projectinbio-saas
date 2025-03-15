@@ -1,8 +1,8 @@
 export function ProjectCard() {
   return (
     <div
-      className="w-[430px] h-[132px] flex gap-5 bg-[var(--background-secondary)] p-3
-     border border-transparent hover:border-[var(--border-secondary)]"
+      className="w-[340px] h-[132px] flex gap-5 bg-[var(--background-secondary)] p-3
+     border border-transparent hover:border-[var(--border-secondary)] rounded-xl"
     >
       <div className="size-24 rounded-md overflow-hidden flex-shrink-0">
         <img
