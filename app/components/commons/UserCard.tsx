@@ -1,5 +1,5 @@
 import { Github, Instagram, Linkedin, Twitter, Plus } from "lucide-react";
-import { Button } from "../ui/Button";
+import { Button } from "../landing-page/ui/Button";
 
 export function UserCard() {
   const icons = [Github, Instagram, Linkedin, Twitter, Plus];
@@ -23,7 +23,7 @@ export function UserCard() {
       </div>
       <div className="flex flex-col gap-2 w-full">
         <span className="uppercase text-xs font-medium">Links</span>
-        <div className="flex gap-3">
+        <div className="flex gap-3 border-b border-[#1e1e1e] pb-5">
           {icons.map((Icon, index) => (
             <Button
               key={index}
