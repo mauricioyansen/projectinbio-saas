@@ -8,7 +8,7 @@ export function Textarea(
       {...props}
       className={cn(
         `
-    w-full p-3 bg-[var(--background-secondary)] text-white placeholder:text-[var(--content-placeholder)] rounded-xl border border-transparent hover:border-[var(--border-secondary)] hover:text-[var(--content-body)] active:border-[var(--border-tertiary)]`,
+    w-full p-3 bg-[var(--background-secondary)] text-white placeholder:text-[var(--content-placeholder)] rounded-xl border border-transparent hover:border-[var(--border-secondary)] hover:text-[var(--content-body)] active:border-[var(--border-tertiary)] resize-none`,
         props.className
       )}
     />
