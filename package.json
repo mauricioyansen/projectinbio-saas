@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@auth/firebase-adapter": "^2.8.0",
+    "@stripe/stripe-js": "^6.0.0",
     "browser-image-compression": "^2.0.2",
     "clsx": "^2.1.1",
     "firebase-admin": "^12.6.0",
@@ -16,6 +17,7 @@
     "next-auth": "^5.0.0-beta.25",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "stripe": "^17.7.0",
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {

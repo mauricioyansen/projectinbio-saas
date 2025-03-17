@@ -1,4 +1,4 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Plus, Twitter } from "lucide-react";
 import { Button } from "../../landing-page/ui/Button";
 import { EditSocialLinks } from "./EditSocialLinks";
 import Link from "next/link";
@@ -15,6 +15,8 @@ export async function UserCard({
   profileData?: ProfileDataType;
   isOwner?: boolean;
 }) {
+  const icons = [Github, Instagram, Linkedin, Twitter, Plus];
+
   return (
     <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white/10 bg-[#121212] rounded-3xl text-white">
       <div className="size-48">
@@ -80,6 +82,17 @@ export async function UserCard({
               <Twitter />
             </Link>
           )}
+
+          {!profileData &&
+            icons.map((Icon, index) => (
+              <button
+                key={index}
+                className="p-3 rounded-xl bg-[#1e1e1e] hover:bg-[#2e2e2e]"
+              >
+                <Icon />
+              </button>
+            ))}
+
           {isOwner && (
             <EditSocialLinks socialMedias={profileData?.socialMedias} />
           )}
