@@ -1,0 +1,9 @@
+# *
+
+User-agent: *
+Allow: /
+
+# Host: https://projectinbio-saas.vercel.app/
+
+#Sitemap:
+Sitemap: https://projectinbio-saas.vercel.app/sitemap.xml

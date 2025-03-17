@@ -11,6 +11,16 @@ import { notFound, redirect } from "next/navigation";
 import { NewProject } from "./new-project";
 import { getDownloadUrlFromPath } from "@/app/lib/firebase";
 import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
+import { Metadata } from "next";
+import { getSEOTags } from "@/app/lib/seo";
+
+export const metadata: Metadata = getSEOTags({
+  appName: "ProjectInBio",
+  appDescription: "Seus projetos e redes sociais em um único link",
+  keywords: ["ProjectInBio", "Portfólio", "SaaS"],
+  appDomain: "https://projectinbio-saas.vercel.app/",
+  canonicalUrlRelative: "/",
+});
 
 export default async function ProfilePage({
   params,

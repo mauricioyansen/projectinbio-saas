@@ -1,5 +1,11 @@
 import { Header } from "@/app/components/landing-page/Header";
 import { PlanButtons } from "./plan-buttons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ProjectInBio - Upgrade",
+  description: "Seus projetos e redes sociais em um único link",
+};
 
 export default function UpgradePage() {
   return (
