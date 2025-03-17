@@ -30,10 +30,7 @@ export function ProjectCard({
 
   return (
     <Link href={formattedUrl} target="_blank" onClick={handleLinkClick}>
-      <div
-        className="w-[340px] h-[132px] flex gap-5 bg-[var(--background-secondary)] p-3
-     border border-transparent hover:border-[var(--border-secondary)] rounded-xl"
-      >
+      <div className="w-[340px] h-[132px] flex gap-5 bg-[var(--background-secondary)] p-3 border border-transparent hover:border-[var(--border-secondary)] rounded-xl">
         <div className="size-24 rounded-md overflow-hidden flex-shrink-0">
           <img src={img} alt="projeto" className="w-full h-full object-cover" />
         </div>

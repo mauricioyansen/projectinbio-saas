@@ -25,14 +25,14 @@ export function Hero() {
           <div className="absolute -bottom-[7%] -right-[45%]">
             <TotalVisits totalVisits={12345} />
           </div>
-          <div className="absolute top-[20%] -left-[45%] -z-10">
+          <div className="absolute top-[20%] -left-[45%] -z-9">
             <ProjectCard
               name="Projeto 1"
               description="Descrição do projeto 1"
               img="/project1.jpg"
             />
           </div>
-          <div className="absolute -top-[5%] -left-[55%] -z-9">
+          <div className="absolute -top-[5%] -left-[55%] -z-10">
             <ProjectCard
               name="Projeto 2"
               description="Descrição do projeto 2"
