@@ -5,7 +5,7 @@ import { Button } from "@/app/components/landing-page/ui/Button";
 import { Modal } from "@/app/components/landing-page/ui/Modal";
 import { Textarea } from "@/app/components/landing-page/ui/Textarea";
 import { TextInput } from "@/app/components/landing-page/ui/TextInput";
-import { compressFiles } from "@/app/lib/utils";
+import { compressFiles, handleImageInput, triggerImageInput } from "@/app/lib/utils";
 import { ArrowUpFromLine, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { startTransition, useState } from "react";
@@ -24,19 +24,7 @@ export function NewProject({ profileId }: { profileId: string }) {
     setIsOpen(true);
   };
 
-  function triggerImageInput(id: string) {
-    const input = document.getElementById(id)?.click();
-  }
-
-  function handleImageInput(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0] ?? null;
-
-    if (file) {
-      const imageURL = URL.createObjectURL(file);
-      return imageURL;
-    }
-    return null;
-  }
+  
 
   async function handleCreateProject() {
     setIsCreatingProject(true);
