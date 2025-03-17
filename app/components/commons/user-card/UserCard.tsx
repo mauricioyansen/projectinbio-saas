@@ -13,13 +13,16 @@ export async function UserCard({
   isOwner,
 }: {
   profileData?: ProfileDataType;
-  isOwner: boolean;
+  isOwner?: boolean;
 }) {
   return (
     <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white/10 bg-[#121212] rounded-3xl text-white">
       <div className="size-48">
         <img
-          src={await getDownloadUrlFromPath(profileData?.imagePath)}
+          src={
+            (await getDownloadUrlFromPath(profileData?.imagePath)) ||
+            "https://github.com/mauricioyansen.png"
+          }
           alt=""
           className="rounded-full object-cover w-full h-full"
         />
@@ -27,11 +30,13 @@ export async function UserCard({
       <div className="flex flex-col gap-2 w-full">
         <div className="flex items-center gap-2">
           <h3 className="text-3xl font-bold min-w-0 overflow-hidden">
-            {profileData?.name}
+            {profileData?.name || "Mauricio Yansen"}
           </h3>
           {isOwner && <EditUserCard profileData={profileData} />}
         </div>
-        <p className="opacity-40">{profileData?.description}</p>
+        <p className="opacity-40">
+          {profileData?.description || "Eu faço produtos para a Internet"}
+        </p>
       </div>
       <div className="flex flex-col gap-2 w-full">
         <span className="uppercase text-xs font-medium">Links</span>

@@ -1,22 +1,31 @@
 "use client";
 
+import { increaseProjectVisits } from "@/app/actions/increase-project-visits";
 import { formatUrl } from "@/app/lib/utils";
 import { ProjectDataType } from "@/app/server/get-profile-data";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export function ProjectCard({
   project,
   isOwner,
   img,
+  name,
+  description,
 }: {
-  project: ProjectDataType;
-  isOwner: boolean;
+  project?: ProjectDataType;
+  isOwner?: boolean;
   img: string;
+  name?: string;
+  description?: string;
 }) {
+  const { profileId } = useParams();
+
   const formattedUrl = formatUrl(project?.projectUrl || "");
 
-  function handleLinkClick() {
-    console.log("clicked");
+  async function handleLinkClick() {
+    if (!profileId || !project?.id || isOwner) return;
+    await increaseProjectVisits(profileId as string, project.id);
   }
 
   return (
@@ -31,13 +40,15 @@ export function ProjectCard({
         <div className="flex flex-col gap-2">
           {isOwner && (
             <span className="uppercase text-xs font-bold text-[var(--accent-green)]">
-              {project.totalVisits || 0} Cliques
+              {project?.totalVisits || 0} Cliques
             </span>
           )}
           <div className="flex flex-col">
-            <span className="text-white font-bold">{project.projectName}</span>
+            <span className="text-white font-bold">
+              {name || project?.projectName}
+            </span>
             <span className="text-[var(--content-body)] text-sm">
-              {project.projectDescription}
+              {description || project?.projectDescription}
             </span>
           </div>
         </div>

@@ -32,6 +32,7 @@ export async function createProject(formData: FormData) {
       .collection("projects")
       .doc(generateId)
       .set({
+        id: generateId,
         userId: session.user?.id,
         projectName,
         projectDescription,

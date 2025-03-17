@@ -10,6 +10,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NewProject } from "./new-project";
 import { getDownloadUrlFromPath } from "@/app/lib/firebase";
+import { increaseProfileVisits } from "@/app/actions/increase-profile-visits";
 
 export default async function ProfilePage({
   params,
@@ -30,6 +31,10 @@ export default async function ProfilePage({
 
   const isOwner = profileData.userId === session?.user?.id;
 
+  if (!isOwner) {
+    await increaseProfileVisits(profileId);
+  }
+
   //To do: add page view
 
   //To do: not trial => redirect to upgrade
@@ -45,7 +50,7 @@ export default async function ProfilePage({
         </Link>
       </div>
       <div className="w-1/2 flex justify-center h-min">
-        <UserCard profileData={profileData} isOwner={isOwner}/>
+        <UserCard profileData={profileData} isOwner={isOwner} />
       </div>
       <div className="w-full flex justify-center content-start gap-4 flex-wrap overflow-y-auto">
         {projects.map(async (project) => (
@@ -59,9 +64,11 @@ export default async function ProfilePage({
 
         {isOwner && <NewProject profileId={profileId} />}
       </div>
-      <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
-        <TotalVisits />
-      </div>
+      {isOwner && (
+        <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
+          <TotalVisits totalVisits={profileData.totalVisits} />
+        </div>
+      )}
     </div>
   );
 }
